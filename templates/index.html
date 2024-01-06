@@ -1,0 +1,17 @@
+<H1> Hello Cruel World!!</H1>
+
+<p> This is the first POS Web Page!!!</p>
+
+{% for slice in fav_pizza %}
+
+	  {% if slice|int %}
+	  	<h3>{{ slice + 500 }}</h3>
+	  {% else %}  
+	 	<h3> {{ slice }} </h3>
+	  {% endif %}
+
+ {% endfor %}
+
+<hr>
+
+{{ fav_pizza.3 + 10 }}

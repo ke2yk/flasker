@@ -1,0 +1,51 @@
+python - https://www.python.org/downloads/windows/
+sublime - https://www.sublimetext.com/
+git shell - https://git-scm.com/downloads
+
+from git shell
+
+mdir /c/flasker
+cd /c/flasker
+
+python -m venv cirt
+source virt/scritps/activate
+<deactivate>
+
+pip freeze
+pip install flask
+pip freeze
+
+touch hello.py
+
+sublime / project /new folder / flasker
+
+open hello.py
+
+from flask import Flask, render template
+
+env variables for web server 
+
+in virt
+
+export FLASK_ENV =development
+export FLASK_APP = hello.py
+
+env | grep Flask
+
+flask run --debug
+
+
+jinga filters for html pages
+
+https://jinja.palletsprojects.com/en/3.1.x/templates/#builtin-filters
+
+safe
+upper
+lower
+striptags
+title
+trim
+capitalize
+int
+
+{{ variable|<filter> }}
