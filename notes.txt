@@ -1,6 +1,14 @@
+Before Installing Flask
+https://youtu.be/
+0Qxtt4veJIc?si=4ZCVbJRRVKlgqJw_`
+
 python - https://www.python.org/downloads/windows/
 sublime - https://www.sublimetext.com/
 git shell - https://git-scm.com/downloads
+
+Lesson 1 - Using Python on Web with Jinga2 and Flask
+
+https://youtu.be/4yaG-jFfePc?si=uWKDq8sg5N2G1u0K
 
 from git shell
 
@@ -49,3 +57,50 @@ capitalize
 int
 
 {{ variable|<filter> }}
+
+-----------------------
+
+Lesson 2 - version control and error pages
+
+https://youtu.be/3O4ZmH5aolg?si=8UhGHnYFgzjPVGfP
+github
+cd ~
+mkdir .ssh
+cd .ssh
+sshkeygen.exe
+enter
+no password
+use public key
+cat .id_...
+copy key value 
+head to github
+settings
+add ssh key 
+paste ssh key
+cd /c/flasker
+touch .gitignore
+.gitignore
+/virt
+
+codeme.com/git
+
+source virt/scripts/activate
+
+git config --global user.name "Gary Utz"
+git config --global user.email "ke2yk48@gmail.com" 
+git config --global push.default matching
+git config --global alias.co checkout
+git init
+
+https://github.com/ke2yk?tab=repositories
+new repository
+name / description / private
+save 
+…or push an existing repository from the command line
+git remote add origin https://github.com/ke2yk/flasker.git
+git branch -M main
+git push -u origin main
+go to github - see code copied into flasker
+
+
+
