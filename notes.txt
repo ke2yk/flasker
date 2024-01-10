@@ -1,12 +1,15 @@
-Before Installing Flask
-https://youtu.be/
-0Qxtt4veJIc?si=4ZCVbJRRVKlgqJw_`
-
+Install
 python - https://www.python.org/downloads/windows/
 sublime - https://www.sublimetext.com/
 git shell - https://git-scm.com/downloads
 
-Lesson 1 - Using Python on Web with Jinga2 and Flask
+----
+Lesson 1 - Before Installing Flask
+https://youtu.be/
+0Qxtt4veJIc?si=4ZCVbJRRVKlgqJw_`
+
+----
+Lesson 2 - Using Python on Web with Jinga2 and Flask
 
 https://youtu.be/4yaG-jFfePc?si=uWKDq8sg5N2G1u0K
 
@@ -60,7 +63,7 @@ int
 
 -----------------------
 
-Lesson 2 - version control and error pages
+Lesson 3 - version control and error pages
 
 https://youtu.be/3O4ZmH5aolg?si=8UhGHnYFgzjPVGfP
 github
@@ -102,5 +105,57 @@ git branch -M main
 git push -u origin main
 go to github - see code copied into flasker
 
+----
+Lesson 4
 
+https://www.youtube.com/watch?v=y62Dvo2Ml7o&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&index=4&ab_channel=Codemy.com
+
+Templates Nav Bar Extensions Bootstrap Links
+
+https://getbootstrap.com/docs/5.3/getting-started/introduction/
+
+----
+Lesson 5 - Web Forms With WTF!
+
+https://www.youtube.com/watch?v=GbJPqu0ff9A&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&index=5&ab_channel=Codemy.com
+
+in virt pip install flask-wtf
+
+
+Lesson 6 - Messages With Flask
+
+add flash to import Flask statement
+
+from flask import Flask, render_template, flash
+
+flash is an easy to implement Fleask messaging system. It can be used for any purpose on any web page.
+
+Lesson 7 - setup and use css images javascript under static folder
+
+
+Lesson 8 - working with SQLAlchemy
+
+https://www.youtube.com/watch?v=Q2QmST-cSwc&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&index=8&ab_channel=Codemy.com
+
+pip install -U Flask-SQLAlchemy
+
+pip freeze
+
+to create db at cli (instance) 
+
+winpty python
+
+from hello import app
+from hello import db
+app.app_context().push()
+db.create_all()
+exit()
+
+ email validation???
+ pip install wtforms[email]
+
+----
+Lesson 9 - How To Use MySQL Database With Flask
+
+https://www.youtube.com/watch?v=hQl2wyJvK5k&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&index=9&ab_channel=Codemy.com
 

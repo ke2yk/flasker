@@ -1,0 +1,1 @@
+document.getElementById('demo').innerHTML = "This mess was created by JavaScript"
