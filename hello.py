@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash
+from flask import Flask, render_template, request, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, EmailField
 from wtforms.validators import DataRequired, Email
@@ -7,8 +7,9 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "this is a secret key for ke2yk"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql//root:gazzo1948@localhost/our_users'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:gazzo1948@localhost/our_users'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 
 class Users(db.Model):
@@ -16,8 +17,6 @@ class Users(db.Model):
  name = db.Column(db.String(200), nullable=False)
  email = db.Column(db.String(200), nullable=False, unique=True)
  date_added = db.Column(db.DateTime, default=datetime.utcnow)
-
-app.app_context().push()
 
 def __repr__(self):
 	return '<Name %r>' % self.name
@@ -36,12 +35,20 @@ class NameForm(FlaskForm):
 
 #INDEX 
 
-fav_pizza = ["sausage","pepper","pine",55]
+#fav_pizza = ["sausage","pepper","pine",55]
 
+#INDEX DISPLAY USERS IF FOUND
 @app.route('/')
 def index():
+
 	flash("Welcone To Our Website!")
-	return render_template('index.html',fav_pizza=fav_pizza)
+
+	users = Users.query.order_by(Users.date_added)	
+
+	if users:
+		return render_template('index.html',users=users)
+	else:
+		return render_template('index.html')
 
 #ADD NEW USER
 @app.route('/add_user', methods=['GET','POST'])
@@ -76,7 +83,33 @@ def add_user():
 		name=name,
 		our_users=our_users)
 
+#UPDATE USER ID
 
+@app.route('/update/<id>', methods=['GET','POST'])
+def update(id):
+	
+	form = UserForm()
+	name_to_update = Users.query.get_or_404(id)
+
+#	if request.method == "POST":
+
+	if form.validate_on_submit():
+
+		name_to_update.name = request.form['name'] 
+		name_to_update.email = request.form['email']
+	
+	try:
+		db.session.commit()
+		flash("User Updated Successfully")
+		return render_template('update.html',form=form, name_to_update=name_to_update)
+	
+	except:
+		flash("User Update Failed Miserably!!!")
+		return render_template('update.html',form=form, name_to_update=name_to_update)
+	
+	else: #Not Post Just Display Form
+		return render_template('update.html',form=form, name_to_update=name_to_update)
+		
 #GET USER NAME
 @app.route('/user/<name>')
 def user(name):

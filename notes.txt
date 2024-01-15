@@ -1,3 +1,16 @@
+ #####################################################
+ Every Time the system needs rebooting
+
+start git terminal
+
+cd /c/flasker
+export FLASK_ENV=development
+export FLASK_APP=hello.py
+source virt/scripts/activate # deactivate to kill virt
+########################################################
+
+
+############# Begin Installing Necessar Software (Windows)
 Install
 python - https://www.python.org/downloads/windows/
 sublime - https://www.sublimetext.com/
@@ -38,13 +51,17 @@ env variables for web server
 
 in virt
 
-export FLASK_ENV =development
-export FLASK_APP = hello.py
+
+#### Set ENV and Start Flask server ####
+
+export FLASK_ENV=development
+export FLASK_APP=hello.py
 
 env | grep Flask
 
 flask run --debug
 
+#### End Flask Server ####
 
 jinga filters for html pages
 
@@ -106,7 +123,7 @@ git push -u origin main
 go to github - see code copied into flasker
 
 ----
-Lesson 4
+Lesson 4 - Tmplates Bootstrap Navbars and Links
 
 https://www.youtube.com/watch?v=y62Dvo2Ml7o&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&index=4&ab_channel=Codemy.com
 
@@ -133,7 +150,7 @@ flash is an easy to implement Fleask messaging system. It can be used for any pu
 Lesson 7 - setup and use css images javascript under static folder
 
 
-Lesson 8 - working with SQLAlchemy
+Lesson 8 - working with SQLAlchemy and sqlite
 
 https://www.youtube.com/watch?v=Q2QmST-cSwc&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&index=8&ab_channel=Codemy.com
 
@@ -154,8 +171,73 @@ exit()
  email validation???
  pip install wtforms[email]
 
+
+ #####################################################
+ Every Time the system needs rebooting
+
+start git terminal
+
+cd /c/flasker
+export FLASK_ENV=development
+export FLASK_APP=hello.py
+source virt/scrpits/activate # deactivate to kill virt
+########################################################
+
 ----
+
 Lesson 9 - How To Use MySQL Database With Flask
 
 https://www.youtube.com/watch?v=hQl2wyJvK5k&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&index=9&ab_channel=Codemy.com
+
+Lesson 10 - Migrate App to MYSQL
+
+https://www.youtube.com/watch?v=hQl2wyJvK5k&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&index=9&ab_channel=Codemy.com
+
+## There's issues with python and mysql connectors 
+## Therefore install all three
+
+pip install msql-connector
+pip install mysql-connector-pythom
+pip install mysql-connector-python-rf
+
+
+pyhthon create_db.py 	# to create database use homebrew script
+						$comment out create line after running the script one time
+
+
+
+#### The db.create_all() command won't work due to a conflict with sqlachemy driver 
+
+winpty python
+
+>>> from hello import app # I had to add this line to get this to work
+?>> app.app_context().push() # I had to add this line also to get the next 2 lines to work
+>>> from hello import db
+>>> db.create_all()
+
+
+#### Fix the above by Using the PyMySQL connector  
+
+pip install pymysql
+pip install cryptography
+
+change URI in hello.py to: URI=mysql+pymysql
+
+winpty python
+
+>>> from hello import app # I had to add this line to get the db.create command to work
+?>> app.app_context().push() # And this line too
+>>> from hello import db
+>>> db.create_all()
+
+#### Now running on mysql db Whoppeeee!
+
+flask run --debug
+
+By switching the URI back and forth, SQLAlchemy abstracts everything to point to differenct dataases
+17:00 
+
+Lesson 10 - How To Update A Record In The Database - Flask Fridays #10
+
+https://www.youtube.com/watch?v=Wicjkn5_nIQ&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&index=10&ab_channel=Codemy.com 
 

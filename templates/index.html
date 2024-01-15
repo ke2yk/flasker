@@ -18,18 +18,26 @@
 
 	<p> This is the first POS Web Page!!!</p>
 
-	{% for slice in fav_pizza %}
+{% if users %}
+	
+	<!--- <h1> User Added</h1> -->
 
-		  {% if slice|int %}
-		  	<h3>{{ slice + 500 }}</h3>
-		  {% else %}  
-		 	<h3> {{ slice }} </h3>
-		  {% endif %}
+	<table class="table table-bordered table-hover table-striped">
 
-	 {% endfor %}
+		{% for user in users %}
+			<tr>
+				<td>
+				{{ user.id }}. {{ user.name 
+				}} - {{ user.email }} <br/>
+				</td>
+			</tr>
 
-<hr>
+		{% endfor %}
 
-{{ fav_pizza.3 + 10 }}
+	</table>
+
+	 <hr>
+
+{% endif %}
 
 {% endblock %}
