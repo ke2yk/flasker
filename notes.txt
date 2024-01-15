@@ -241,3 +241,5 @@ Lesson 10 - How To Update A Record In The Database - Flask Fridays #10
 
 https://www.youtube.com/watch?v=Wicjkn5_nIQ&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&index=10&ab_channel=Codemy.com 
 
+
+lesson 11 - How To Migrate Database With Flask - Flask Fridays #11
